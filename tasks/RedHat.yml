@@ -26,3 +26,6 @@
 - name: systemctl daemon-reload
   when: kibana_service_updated.changed
   command: /bin/systemctl daemon-reload
+
+- name: Remove SysV Init file
+  file: path=/etc/init.d/kibana state=absent
