@@ -1,2 +1,4 @@
 ---
 # vars file for hyclak.kibana
+kibana_repover: '4.5'
+kibana_ver: '4.5.0'
