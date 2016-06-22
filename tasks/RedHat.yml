@@ -26,6 +26,3 @@
 - name: systemctl daemon-reload
   when: kibana_service_updated.changed
   command: /bin/systemctl daemon-reload
-
-- name: kibana service
-  service: name=kibana state=started enabled=yes
