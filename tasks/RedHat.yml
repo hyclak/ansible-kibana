@@ -13,3 +13,6 @@
   yum: 
     name: kibana-{{kibana_ver}}
     state: installed
+
+- name: Register Kibana service
+  command: /sbin/chkconfig --add kibana
