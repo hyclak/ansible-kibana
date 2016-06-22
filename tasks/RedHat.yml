@@ -1,0 +1,15 @@
+---
+# Red Hat Installation
+- name: Add Kibana Repository
+  yum_repository: 
+    name: kibana-{{kibana_repover}}
+    description: Kibana repository for {{kibana_repover}}.x packages
+    baseurl: http://packages.elastic.co/kibana/{{kibana_repover}}/centos
+    gpgcheck: yes
+    gpgkey: http://packages.elastic.co/GPG-KEY-elasticsearch
+    enabled: yes
+
+- name: Install Kibana RPM
+  yum: 
+    name: kibana-{{elastic_ver}}
+    state: installed

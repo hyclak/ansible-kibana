@@ -1,2 +1,8 @@
 ---
 # tasks file for hyclak.kibana
+- name: (RedHat) Install
+  when: ansible_os_family == 'RedHat'
+  include: RedHat.yml
+
+- name: Start Kibana
+  service: name=kibana state=started enabled=yes
