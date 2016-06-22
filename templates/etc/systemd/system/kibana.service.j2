@@ -1,0 +1,11 @@
+[Unit]
+Description=Kibana {{kibana_repover}}
+
+[Service]
+Type=simple
+Environment=CONFIGPATH=/opt/kibana/config/kibana.yml
+Environment=NODE_ENV=production
+ExecStart=/opt/kibana/bin/kibana
+
+[Install]
+WantedBy=multi-user.target

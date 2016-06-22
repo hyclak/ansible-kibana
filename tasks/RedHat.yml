@@ -14,5 +14,18 @@
     name: kibana-{{kibana_ver}}
     state: installed
 
-- name: Register Kibana service
-  command: /sbin/chkconfig --add kibana
+- name: Register Kibana systemd service
+  template: >-
+    src=etc/systemd/system/kibana.service.j2
+    dest=/etc/systemd/system/kibana.service
+    owner=root
+    group=root
+    mode=0644
+  register: kibana_service_updated
+
+- name: systemctl daemon-reload
+  when: kibana_service_updated.changed
+  command: /bin/systemctl daemon-reload
+
+- name: kibana service
+  service: name=kibana state=started enabled=yes
