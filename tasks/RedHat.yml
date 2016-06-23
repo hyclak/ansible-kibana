@@ -31,4 +31,4 @@
   file: path=/etc/init.d/kibana state=absent
 
 - name: Enable firewalld rules
-  firewalld: port=5061/tcp permanent=true state=enabled immediate=true
+  firewalld: port=5601/tcp permanent=true state=enabled immediate=true
