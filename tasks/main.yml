@@ -5,4 +5,7 @@
   include: RedHat.yml
 
 - name: Start Kibana
-  service: name=kibana state=started enabled=yes
+  service: 
+    name: kibana 
+    state: started 
+    enabled: yes

@@ -15,12 +15,12 @@
     state: installed
 
 - name: Register Kibana systemd service
-  template: >-
-    src=etc/systemd/system/kibana.service.j2
-    dest=/etc/systemd/system/kibana.service
-    owner=root
-    group=root
-    mode=0644
+  template:
+    src: etc/systemd/system/kibana.service.j2
+    dest: /etc/systemd/system/kibana.service
+    owner: root
+    group: root
+    mode: 0644
   register: kibana_service_updated
 
 - name: systemctl daemon-reload
@@ -28,7 +28,13 @@
   command: /bin/systemctl daemon-reload
 
 - name: Remove SysV Init file
-  file: path=/etc/init.d/kibana state=absent
+  file: 
+    path: /etc/init.d/kibana 
+    state: absent
 
 - name: Enable firewalld rules
-  firewalld: port=5601/tcp permanent=true state=enabled immediate=true
+  firewalld: 
+    port: 5601/tcp 
+    permanent: true 
+    state: enabled 
+    immediate: true
